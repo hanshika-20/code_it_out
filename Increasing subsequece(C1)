@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() {
+    int n,s=0,e,p=0;
+    cin>>n;
+    int a[n];
+    if(n==1)
+    {
+        cout<<"1\nL";
+        return 0;
+    }
+    e=n-1;
+    string st="";
+    for(int i=0;i<n;i++)
+    cin>>a[i];
+    if(a[s]<a[e])
+    {
+        st+='L';
+        p=a[s];
+        s++;
+    }
+    else
+    {
+       st+='R';
+       p=a[e];
+       e--;
+    }
+    while(st.size()<n)
+    {
+        if(a[s]<a[e])
+        {
+           if(a[s]>p)
+           {
+               st+='L';
+               p=a[s];
+               s++;
+           }
+           else if(a[e]>p)
+           {
+                st+='R';
+                p=a[e];
+                e--;
+           }
+           else
+    
+           break;
+        }
+        else
+        {
+            if(a[e]>p)
+            {
+                st+='R';
+                p=a[e];
+                e--;
+            }
+           else  if(a[s]>p)
+           {
+               st+='L';
+               p=a[s];
+               s++;
+           }
+            else
+            break;
+        }
+    }
+    cout<<st.size()<<endl;
+    cout<<st<<endl;
+    return 0;
